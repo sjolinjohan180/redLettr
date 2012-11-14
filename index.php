@@ -1,5 +1,5 @@
 <?php
-	require_once('spellr.php');
+	require_once(dirname(__FILE__) . '/redLettr.php');
 
 	
 ?>
