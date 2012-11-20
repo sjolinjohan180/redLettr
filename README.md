@@ -65,6 +65,8 @@ Fel som beror på att datumet är felformaterat hanteras genom att redLettr retu
 		...
 	}
 
+***
+
 ## Funderingar på kommande funktioner
 
 * Hämta all info om dagar mellan två datum.
