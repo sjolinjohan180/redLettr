@@ -2,7 +2,7 @@
 	require_once(dirname(__FILE__) . '/simpletest/autorun.php');
 	require_once(dirname(__FILE__) . '/../redLettr.php');
 
-	class LogTester extends UnitTestCase{
+	class redLettrTester extends UnitTestCase{
 
 		function __construct(){
 			$this->redLettr = new redLettr();
@@ -19,11 +19,11 @@
 		}
 
 		function TestDataIsTodayIfNoParam(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday()->date == date("Y-m-d H:i:s"));
+			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday()->datum == date("YYYYmmdd"));
 		}
 
 		function TestIfParamDate(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday("2212-11-14 22:23:31")->date != date("Y-m-d H:i:s"));
+			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday("22121114")->datum != date("YYYYmmdd"));
 		}
 	}
 ?>
