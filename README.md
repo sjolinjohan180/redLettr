@@ -57,3 +57,10 @@ Felhantering sker med hjälp av exceptions som kan fångas genom att göra en tr
 	}catch(redLettrException $e){
 		echo("Fel har skett:".$e);
 	}
+
+## Funderingar på kommande funktioner
+
+Hämta all info om datum från ett datum till ett datum.
+
+Hämta all info om dagar som innefaller en viss månad/vecka.
+

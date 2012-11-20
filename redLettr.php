@@ -14,6 +14,12 @@
 			}
 			return $ret;
 		}
+
+		public function getInfoAboutDateFromTo($date_from, $date_to){
+		}
+		
+		public function getInfoAboutDatesInWeek($weekNumber){
+		}
 		
 		public function saveToLoggr($logToSave){
 		}

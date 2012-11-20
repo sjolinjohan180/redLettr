@@ -19,11 +19,23 @@
 		}
 
 		function TestDataIsTodayIfNoParam(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday()->datum == date("YYYYmmdd"));
+			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday()->datum === date("YYYY-mm-dd"));
 		}
 
 		function TestIfParamDate(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday("22121114")->datum != date("YYYYmmdd"));
+			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday("20121114")->datum != date("YYYY-mm-dd"));
+		}
+
+		function TestIfArrayIsReturnedFromDateFromTo(){
+			$this->assertTrue($this->redLettr->getInfoAboutDateFromTo("20120101", "20121230"));
+		}
+
+		function TestIfAllDatesIsInWeekNumber(){
+			var $week = 12;
+			var dates = $this->redLettr->getInfoAboutDatesInWeek();
+			foreach ($dates as $value) {
+				$this->assertTrue($value.vecka === 12)
+			}
 		}
 	}
 ?>
