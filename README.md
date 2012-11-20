@@ -7,7 +7,7 @@ redLettr hämtar data från http://api.dryg.net/ som i sin tur räknar ut vilket
 Eftersom påsken innefaller "söndagen närmast efter den fullmåne som infaller på eller närmast efter den 21 mars" kan det vara svårt att själv hålla koll på datum då påsken är från år till år, detta löser redLettr åt dig. 
 
 
->Tryck här för att se hur man gör: https://github.com/sjolinjohan180/redLettr#hur-anv%C3%A4nder-man-det
+>Tryck [HereLinkForUsage][] för att se hur man gör
 
 ## Exempel på användningsområden
 Ett exempel på när man vill använda redLettr kan vara om man vill ha information om specifika dagar exempelvis om man tillhandahåller en kalender.
@@ -77,3 +77,4 @@ Använda SimpleMock för att slippa göra anrop till APIet under testning.
 
 
 [stdObject]: http://php.net/manual/en/reserved.classes.php "stdObject"
+[HereLinkForUsage]: https://github.com/sjolinjohan180/redLettr#hur-anv%C3%A4nder-man-det "här"
