@@ -1,4 +1,4 @@
-# RedLettr API (BETA)
+# RedLettr API (BETA) samt [utvärdering av simpletest][]
 
 RedLettr är ett API som hämtar information om dagens datum eller ett specifikt datum om det anges.
 
@@ -28,7 +28,7 @@ RedLettr har två beroenden och det krävs att man har det i sin PHP installatio
 Först och främst måste RedLettr installeras och det gör du genom att ladda ner PHP filerna och placera dom i rotkatalogen av din applikation.
 När man laddat hem det kan du använda dig av redLettr.
 
-	require_once(dirname(__FILE__) . '/redLettr.php');
+	require_once('redLettr.php');
 
 	$redLettr = new redLettr();
 
@@ -67,7 +67,7 @@ Fel som beror på att datumet är felformaterat hanteras genom att redLettr retu
 
 ***
 
-## Funderingar på kommande funktioner eller inte implementerade funktioner
+## Funderingar på kommande eller inte implementerade features
 
 * Cachning med hjälp av XcacheApi.
 * Möjlighet för loggning av exceptions och API anrop.
@@ -87,7 +87,7 @@ Simpletests [dokumentation][] är lätt att läsa och som säkert många andra �
 
 För de tester jag skapade nu behövde jag inte besöka någon annan sida än simpletests egna dokumentation, och de är bra indexerade på google om man söker på [simpletest relaterade frågor][]. 
 
-Ramverket är opensource och det gör att man kan delta i utvecklingen av ramverk, jag läste på simpletests documentation att de enbart vill att man uppdaterar gammal kod och inte gör ny, eftersom de anser att simpletest för tillfället är stabilt. Simpletest har ett SVN-repositorie på [sourceforge][] som jag förmodar fungerar som på github där man gör såkallade pull-requests för att få med en commit till repositoriet. Och för att rapportera buggar vill de att man lägger upp en såkallad tracker på sourceforge, där kan utvecklarna hålla koll på buggar som användarna och dom själva hittat och beta av dom. Varje tracker går igenom en process där man först måste få den godkänd, sen kan den tillges en utvecklare och även stängas om den blir löst eller av annat skäl inte längre är relevant. 
+Ramverket är opensource och det gör att man kan delta i utvecklingen av ramverket, jag läste på simpletests documentation att de enbart vill att man uppdaterar gammal kod och inte skapar nya features eftersom de anser att simpletest för tillfället är stabilt. Simpletest har ett SVN-repositorie på [sourceforge][] som jag förmodar fungerar som på github där man gör pull-requests för att få med en commit till repositoriet. Och för att rapportera buggar vill de att man lägger upp en såkallad tracker på sourceforge, där kan utvecklarna hålla koll på buggar som användarna och dom själva hittat och beta av dom. Varje tracker går igenom en process där man först måste få den godkänd, sen kan den tillges en utvecklare och även stängas om den blir löst eller av annat skäl inte längre är relevant. 
 
 Simpletest har två [mailinglistor][] på sourceforge, den ena skickar ut mail angående "Commits, tracker ticket and code related matters" och den andra om "Help, advice, bugs and workarounds.". Där kan man förmodligen se om det kommer ut nya versioner. Är man med på den första får man iallafall reda på nya commits till repositoriet vilket kan hjälpa. Dessutom har de nu uppe på startsidan av dokumentationen en skylt där det står när den senaste versionen kom samt vilket version och status. 
 
@@ -98,3 +98,4 @@ Simpletest har två [mailinglistor][] på sourceforge, den ena skickar ut mail a
 [simpletest relaterade frågor]: http://goo.gl/vF5Rw "sökning på mock"
 [sourceforge]: http://sourceforge.net/projects/simpletest/ "simpletest på sourceforge"
 [mailinglistor]: http://sourceforge.net/mail/?group_id=76550 "simpletests mailing listor"
+[utvärdering av simpletest]: https://github.com/sjolinjohan180/redLettr#utv%C3%A4rdering-av-simpletest "utvärdering av simpletest"
