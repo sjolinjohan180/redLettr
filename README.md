@@ -1,4 +1,4 @@
-# RedLettr API
+# RedLettr API (BETA)
 
 RedLettr är ett API som hämtar information om dagens datum eller ett specifikt datum om det anges.
 
@@ -32,7 +32,7 @@ När man laddat hem det kan du använda dig av redLettr.
 
 	$redLettr = new redLettr();
 
-Och för att hämta data används den publika metoden getInfoAboutDateParamOrToday som finns i klassen redLettr. Metoden tar ett datum i form av en sträng formaterad YYYYMMDD, om inget datum skickas med hämtas information om dagens datum.
+Och för att hämta data används den publika metoden **getInfoAboutDateParamOrToday** som finns i klassen redLettr. Metoden tar ett datum i form av en sträng som ska kunna tolkas till ett datum, om inget datum skickas med hämtas information om dagens datum.
 > Exempel på anrop:
 	
 	$redLettr->getInfoAboutDateParamOrToday('20121224');
@@ -50,7 +50,7 @@ Och för att hämta data används den publika metoden getInfoAboutDateParamOrTod
 	}
 
 ## Felhantering
-Felhantering sker med hjälp av exceptions som kan fångas genom att göra en try catch runt anropet:
+Fel som beror på att beroenden eller datakällan inte fungerar korrekt triggar ett exception av typen **redLettrException** som kan fångas genom att göra en try catch runt anropet:
 
 	try{
 		$redLettr->getInfoAboutDateParamOrToday('20121224');
@@ -58,9 +58,22 @@ Felhantering sker med hjälp av exceptions som kan fångas genom att göra en tr
 		echo("Fel har skett:".$e);
 	}
 
+Fel som beror på att datumet är felformaterat hanteras genom att redLettr returnerar ett [stdObject][] med attributet errors som är en array av strängar (errors) och det kan hanteras på följande sätt:
+
+	$dateInfo = $rl->getInfoAboutDateParamOrToday('Not a valid date');
+	if(isset($dateInfo->errors)){
+		...
+	}
+
 ## Funderingar på kommande funktioner
 
-Hämta all info om datum från ett datum till ett datum.
+Hämta all info om dagar mellan två datum.
 
 Hämta all info om dagar som innefaller en viss månad/vecka.
 
+Använda SimpleMock för att slippa göra anrop till APIet under testning.
+
+
+
+
+[stdObject]: http://php.net/manual/en/reserved.classes.php "stdObject"

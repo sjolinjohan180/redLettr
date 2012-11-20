@@ -19,11 +19,11 @@
 		}
 
 		function TestDataIsTodayIfNoParam(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday()->datum === date("YYYY-mm-dd"));
+			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday()->datum === date("Y-m-d"));
 		}
 
 		function TestIfParamDate(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday("20121114")->datum != date("YYYY-mm-dd"));
+			$this->assertTrue($this->redLettr->getInfoAboutDateParamOrToday("20121114")->datum !== date("Y-m-d"));
 		}
 
 		function TestIfArrayIsReturnedFromDateFromTo(){
@@ -31,11 +31,30 @@
 		}
 
 		function TestIfAllDatesIsInWeekNumber(){
-			var $week = 12;
-			var dates = $this->redLettr->getInfoAboutDatesInWeek();
+			$week = 12;
+			$dates = $this->redLettr->getInfoAboutDatesInWeek($week);
 			foreach ($dates as $value) {
-				$this->assertTrue($value.vecka === 12)
+				$this->assertTrue($value->vecka === 12);
 			}
+		}
+
+		function TestIfNoErrorsWhenDateIsValid(){
+			$dateInfo = $this->redLettr->getInfoAboutDateParamOrToday("20121114");
+			$this->assertTrue(!isset($dateInfo->errors));
+		}
+
+		function TestIfDataIsReturnedFromCache(){
+			$dateInfo = $this->redLettr->getInfoAboutDateParamOrToday("20121114");
+			$dateFromCacheInfo = $this->redLettr->getDataFromCacheOrFalse("20121114");
+			$this->assertEqual($dateFromCacheInfo, $dateInfo);
+				
+		}
+
+		// Test to fail
+
+		function TestIfErrorWhenDateIsNotValid(){
+			$dateInfo = $this->redLettr->getInfoAboutDateParamOrToday("This is not a valid date");
+			$this->assertTrue(isset($dateInfo->errors));
 		}
 	}
 ?>
