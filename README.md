@@ -67,14 +67,25 @@ Fel som beror på att datumet är felformaterat hanteras genom att redLettr retu
 
 ***
 
-## Funderingar på kommande funktioner
+## Funderingar på kommande funktioner eller inte implementerade funktioner
 
+* Cachning med hjälp av XcacheApi.
+* Möjlighet för loggning av exceptions och API anrop.
 * Hämta all info om dagar mellan två datum.
 * Hämta all info om dagar som innefaller en viss månad/vecka.
 * Använda SimpleMock för att slippa göra anrop till APIet under testning.
 
+---
 
+## Utvärdering av simpletest
 
+Som sagt, simpletest var det testramverk Jag valde att utforska, jag valde det eftersom jag hört att PHPUnit är lite mer avancerat och jag kommer återkomma till att testa det i ett senare skede.
+Som testramverk fungerar simpletest som många andra testramverk till PHP men även Javascript och C#, därför var det väldigt enkelt att sätta sig in i. Det hörs lite på namnet att det är lätt och det kan jag inte annat än hålla med om. 
+Simpletests [dokumentation][] är lätt att läsa och som säkert många andra är det första man vill se exempel på hur man använder ramverket, och det var väldigt enkelt att hitta [dit][] .
+För de tester jag skapade nu behövde jag inte besöka någon annan sida än simpletests egna dokumentation, och de är bra indexerade på google om man söker på [simpletest relaterade frågor][]. 
 
 [stdObject]: http://php.net/manual/en/reserved.classes.php "Documentation för stdObject"
 [här]: https://github.com/sjolinjohan180/redLettr#hur-anv%C3%A4nder-man-det "Tryck här"
+[dokumentation]: http://simpletest.org/index.html "simpletest dokumentation"
+[dit]: http://simpletest.org/en/start-testing.html "länk till kom-igång sida"
+[simpletest relaterade frågor]: http://goo.gl/vF5Rw "sökning på mock"
