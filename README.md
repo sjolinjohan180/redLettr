@@ -77,4 +77,4 @@ Använda SimpleMock för att slippa göra anrop till APIet under testning.
 
 
 [stdObject]: http://php.net/manual/en/reserved.classes.php "stdObject"
-[HereLinkForUsage]: https://github.com/sjolinjohan180/redLettr#hur-anv%C3%A4nder-man-det "här"
+[HereLinkForUsage]: https://github.com/sjolinjohan180/redLettr#hur-anv%C3%A4nder-man-det "here"
