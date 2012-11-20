@@ -27,14 +27,14 @@
 		}
 
 		function TestIfArrayIsReturnedFromDateFromTo(){
-			$this->assertTrue($this->redLettr->getInfoAboutDateFromTo("20120101", "20121230"));
+			$this->assertTrue(is_array($this->redLettr->getInfoAboutDateFromTo("20120101", "20121230")));
 		}
 
 		function TestIfAllDatesIsInWeekNumber(){
 			$week = 12;
 			$dates = $this->redLettr->getInfoAboutDatesInWeek($week);
 			foreach ($dates as $value) {
-				$this->assertTrue($value->vecka === 12);
+				$this->assertTrue($value->vecka === $week);
 			}
 		}
 
