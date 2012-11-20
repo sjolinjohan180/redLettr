@@ -67,11 +67,9 @@ Fel som beror på att datumet är felformaterat hanteras genom att redLettr retu
 
 ## Funderingar på kommande funktioner
 
-Hämta all info om dagar mellan två datum.
-
-Hämta all info om dagar som innefaller en viss månad/vecka.
-
-Använda SimpleMock för att slippa göra anrop till APIet under testning.
+* Hämta all info om dagar mellan två datum.
+* Hämta all info om dagar som innefaller en viss månad/vecka.
+* Använda SimpleMock för att slippa göra anrop till APIet under testning.
 
 
 
