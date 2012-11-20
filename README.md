@@ -1,10 +1,20 @@
 # RedLettr API
 
-RedLettr is an API that makes it possible to get information about the current day or any date if given.
+RedLettr är ett API som hämtar information om dagens datum eller ett specifikt datum om det anges.
+
+## Varför använda det?
+redLettr hämtar data från http://api.dryg.net/ som i sin tur räknar ut vilket datum helgdagar innefaller på enligt Lag (1989:253) om allmänna helgdagar.
+Eftersom påsken innefaller "söndagen närmast efter den fullmåne som infaller på eller närmast efter den 21 mars" kan det vara svårt att själv hålla koll på datum då påsken är från år till år, detta löser redLettr åt dig. 
+
+
+>Tryck här för att se hur man gör: https://github.com/sjolinjohan180/redLettr#hur-anv%C3%A4nder-man-det
+
+## Exempel på användningsområden
+Ett exempel på när man vill använda redLettr kan vara om man vill ha information om specifika dagar exempelvis om man tillhandahåller en kalender.
 
 ## Datakälla och beroenden
 
-RedLettr hämtar data från ett publikt webbapi som man kan hitta på http://api.dryg.net/.
+RedLettr hämtar data från ett publikt webbapi som man kan hitta på http://api.dryg.net/ .
 RedLettr har två beroenden och det kräver att man har det i sin PHP version.
 
 > cURL är ett bibliotek och ett kommandotolk-verktyg som används för att hämta data över HTTP-protokollet.
