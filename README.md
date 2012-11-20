@@ -15,7 +15,7 @@ Ett exempel på när man vill använda redLettr kan vara om man vill ha informat
 ## Datakälla och beroenden
 
 RedLettr hämtar data från ett publikt webbapi som man kan hitta på http://api.dryg.net/ .
-RedLettr har två beroenden och det kräver att man har det i sin PHP version.
+RedLettr har två beroenden och det krävs att man har det i sin PHP installation.
 
 > cURL är ett bibliotek och ett kommandotolk-verktyg som används för att hämta data över HTTP-protokollet.
 >> Dokumentation: http://curl.haxx.se/
@@ -25,7 +25,6 @@ RedLettr har två beroenden och det kräver att man har det i sin PHP version.
 
 ## Hur använder man det?
 
-> Installation
 Först och främst måste RedLettr installeras och det gör du genom att ladda ner PHP filerna och placera dom i rotkatalogen av din applikation.
 När man laddat hem det kan du använda dig av redLettr.
 
