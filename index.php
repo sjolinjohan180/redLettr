@@ -1,9 +1,9 @@
 <?php
 	require_once(dirname(__FILE__) . '/redLettr.php');
-
-	$rl = new redLettr();
+	date_default_timezone_set("Europe/Stockholm");
+	$rl = new RedLettr();
 	try{
-		$dateInfo = $rl->getInfoAboutDateParamOrToday('20120112');
+		$dateInfo = $rl->getInfoAboutDateParamOrToday(new DateTime('abc'));
 		if(isset($dateInfo->errors)){
 			var_dump($dateInfo->errors);
 		}else{

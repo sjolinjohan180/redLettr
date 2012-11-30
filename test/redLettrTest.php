@@ -5,7 +5,7 @@
 	class redLettrTester extends UnitTestCase{
 
 		function __construct(){
-			$this->redLettr = new redLettr();
+			$this->redLettr = new RedLettrInternal();
 		}
 
 		function TestFirstLogMessageCreatesFileIfNonExistent(){

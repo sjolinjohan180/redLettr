@@ -1,4 +1,4 @@
-# RedLettr API (BETA) samt [utvärdering av simpletest][]
+# RedLettr API (BETA 0.2) samt [utvärdering av simpletest][]
 
 RedLettr är ett API som hämtar information om dagens datum eller ett specifikt datum om det anges.
 
@@ -15,7 +15,7 @@ Ett exempel på när man vill använda redLettr kan vara om man vill ha informat
 ## Datakälla och beroenden
 
 RedLettr hämtar data från ett publikt webbapi som man kan hitta på http://api.dryg.net/ .
-RedLettr har två beroenden och det krävs att man har det i sin PHP installation.
+RedLettr har ett beroende och det krävs att man har det i sin PHP installation, och i kommande versioner kommer även Xcache ett beroende.
 
 > cURL är ett bibliotek och ett kommandotolk-verktyg som används för att hämta data över HTTP-protokollet.
 >> Dokumentation: http://curl.haxx.se/
@@ -32,38 +32,40 @@ När man laddat hem det kan du använda dig av redLettr.
 
 	$redLettr = new redLettr();
 
-Och för att hämta data används den publika metoden **getInfoAboutDateParamOrToday** som finns i klassen redLettr. Metoden tar ett datum i form av en sträng som ska kunna tolkas till ett datum, om inget datum skickas med hämtas information om dagens datum.
+Och för att hämta data används den publika metoden **getInfoAboutDateParamOrToday** som finns i klassen redLettr. Metoden tar ett datum i form av ett DateTime objekt, om inget datum skickas med hämtas information om dagens datum. Du kan eventuellt behöva sätta tidzonen för att DateTime ska fungera.
 > Exempel på anrop:
 	
-	$redLettr->getInfoAboutDateParamOrToday('20121224');
+	getInfoAboutDateParamOrToday(new DateTime('2012-12-24'));
 
+> Sätta tidzon
+	
+	date_default_timezone_set("Europe/Stockholm");
+
+Svaren ges i form av ett Day objekt. 
 > Exempel på svar:
 	
-	object(stdClass)#2 (6) 
+	object(rlModels\Day)#6 (6) 
 	{ 
-		["datum"]=> string(10) "2012-12-24" 
-		["unixdatum"]=> int(1356303600) 
-		["dag"]=> string(7) "MÃ¥ndag" 
-		["veckodag"]=> string(1) "1" 
-		["vecka"]=> string(2) "52" 
-		["helgdag"]=> string(8) "Julafton" 
+		["date"]=> string(10) "2012-12-24" 
+		["unix"]=> int(1356303600) 
+		["dayName"]=> string(7) "MÃ¥ndag" 
+		["weekDay"]=> string(1) "1" 
+		["week"]=> string(2) "52" 
+		["redLettr"]=> string(8) "Julafton" 
 	}
 
 ## Felhantering
 Fel som beror på att beroenden eller datakällan inte fungerar korrekt triggar ett exception av typen **redLettrException** som kan fångas genom att göra en try catch runt anropet:
 
 	try{
-		$redLettr->getInfoAboutDateParamOrToday('20121224');
+		$redLettr->getInfoAboutDateParamOrToday(new DateTime('2012-12-24'));
 	}catch(redLettrException $e){
 		echo("Fel har skett:".$e);
 	}
 
-Fel som beror på att datumet är felformaterat hanteras genom att redLettr returnerar ett [stdObject][] med attributet errors som är en array av strängar (errors) och det kan hanteras på följande sätt:
+Fel som beror på att datumet är felformaterat hanteras av DateTime då den ger ett exception om datumet är felformaterat.
 
-	$dateInfo = $rl->getInfoAboutDateParamOrToday('Not a valid date');
-	if(isset($dateInfo->errors)){
-		...
-	}
+	Fatal error: Uncaught exception 'Exception' with message 'DateTime::__construct()
 
 ***
 
